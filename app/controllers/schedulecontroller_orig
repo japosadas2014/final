@@ -1,0 +1,151 @@
+scheduleApp.controller("scheduleController", function($scope, FIREBASE_URL) {
+
+//angular.module("scheduleApp", []).controller("scheduleController", function($scope) {
+	//function scheduleController($scope){
+	
+	$scope.program = {};
+
+		$scope.viewList = true;
+
+		$scope.errormsg = "";
+
+		$scope.details = [];
+
+		$scope.program.genretypes = [
+		{ value: "action", label: "Action" },
+		{ value: "amination", label: "Amination" },
+		{ value: "crime", label: "Crime" },
+		{ value: "drama", label: "Drama" },
+		{ value: "documentary", label: "Documentary" },
+		{ value: "foreign", label: "Foreign" },
+		{ value: "horror", label: "Horror" },
+		{ value: "suspense", label: "Suspense" },
+		{ value: "thriller", label: "Thriller" }
+		];
+
+/*		$scope.program.year = [
+		{ value: "2015", label: "2015" },
+		{ value: "2014", label: "2014" }
+		];
+
+
+		$scope.program.rating = [
+		{ value: "G", label: "G" },
+		{ value: "PG13", label: "PG-13" },
+		{ value: "R", label: "R" },
+		{ value: "TVMA", label: "TV-MA" }
+		];
+*/
+
+
+		$scope.addDetail = function(new_program) {
+			if (!new_program.title) {
+				$scope.errormsg = "Title is missing";
+			//}  else if (!new_program.rating)  {
+				//$scope.errormsg = "Rating dropdown was not selected";	
+			}  else if (!new_program.genre)  {
+				$scope.errormsg = "Genre dropdown was not selected";
+			}  else if (!new_program.year)  {
+				$scope.errormsg = "Year is missing";
+			} else if (!is_valid_year(new_program.year)) {
+				$scope.errormsg = "Year is in the incorrect numeric format: YYYY";
+			}  else if (!new_program.runtime)  {
+				$scope.errormsg = "Run Time is missing";
+			} else if (!is_valid_runtime(new_program.runtime)) {
+				$scope.errormsg = "Run Time is in the incorrect numeric format: 00:00";
+			} else if (!new_program.url)  {
+				$scope.errormsg = "URL is missing";
+			} else if (!is_valid_url(new_program.url)) {
+				$scope.errormsg = "URL is in the incorrect format: http://www.abc.com";
+			} else {
+				$scope.errormsg = '';
+				$scope.success= 'Thank you for registering.';
+
+		/*	var pushRef = new Firebase(FIREBASE_URL + '/schedule');
+      		pushRef.push({
+        	title: $scope.program.title,
+        	//creationDate: Firebase.ServerValue.TIMESTAMP,
+        	rating: $scope.program.rating,
+        	year: $scope.program.year,
+        	genre: $scope.program.genre,
+        	runtime: $scope.program.runtime,
+        	description: $scope.program.desc,
+        	url: $scope.program.url,
+        	image: imageUpped 
+      		});*/
+
+
+				//$scope.addScheduleDetail(program);
+				//$scope.program = {};
+			}
+		}
+
+    	//$scope.addScheduleDetail = function( new_schedule ) {
+      		//var pushRef = new Firebase(FIREBASE_URL + '/schedule');
+      		//pushRef.push({
+        	//title: new_schedule.title,
+        	//creationDate: Firebase.ServerValue.TIMESTAMP,
+        	//rating: new_schedule.rating,
+        	//year: new_schedule.year,
+        	//genre: new_schedule.genre,
+        	//runtime: new_schedule.runtime,
+        	//description: new_schedule.description,
+        	//url: new_schedule.url,
+        	//imageurl: imageUpped 
+      		//});
+      	 //};
+
+
+
+
+		var imageUpped;
+
+		$scope.addImage = function(new_image) {
+			filepicker.setKey("ArnCVV3SAaRjVTRznh6Abz");
+
+			filepicker.pick(
+			{
+				mimetypes: ['image/*', 'text/plain'],
+				container: 'window',
+				services:['COMPUTER'],
+			},
+			function(Blob){
+    			imageUpped = Blob.url;
+    			console.log(imageUpped);
+				},
+			function(FPError){
+				console.log(FPError.toString());
+				}
+			);
+		}; //filepicker
+
+	}); //scheduleController function
+
+	//scheduleApp.controller("scheduleController", scheduleController);
+
+
+	function is_valid_year (item) {
+		if (item.match(/^[0-9]{4}$/)){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+
+	function is_valid_runtime (item) {
+		if (item.match(/^[0-9]{2}:[0-9]{2}$/)){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	function is_valid_url (item) {
+		if (item.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)){
+			return true;
+		} else {
+			return false;
+		}
+	}
+

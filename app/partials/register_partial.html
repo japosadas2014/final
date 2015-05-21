@@ -1,0 +1,37 @@
+
+
+<div class="alert alert-danger" ng-show="errormsg">
+	{{errormsg}}
+</div>
+
+<div class="alert alert-success" ng-show="success">
+	{{success}}
+</div>
+		
+<div class="panel panel-default">
+	<h3>Register</h3>
+	<form name="registerForm" novalidate>
+
+		<p><label for="login-pname">Name</label>
+		<input type="text" name="pname" ng-model="adding_user.pname" required>
+		</p>	
+
+
+		<p><label for="login-email">Email</label>
+		<input type="text" name="email" ng-model="adding_user.email" required>
+		</p>
+
+
+		<p><label for="login-username">Username</label>
+		<input type="text" name="username" ng-model="adding_user.username" required>
+		</p>
+
+		<p><label for="login-password">Password</label>
+		<input type="password" name="password" ng-model="adding_user.password" required></p>
+		<p class="disclaimer">password must be between 8 to 15 characters which contain only characters, numeric digits and underscore and first character must be a letter.
+		</p>
+
+		<p><button type="button" ng-click="validateRegister( adding_user )" class="btn btn-default">Register</button></p>  
+
+	</form>
+</div>	

@@ -1,0 +1,34 @@
+<h3>Schedule Details</h3>
+
+<!-- <div class="panel panel-primary" ng-repeat="detail in details">
+<p><a href="{{detail.url}}" target="_blank"><img src="{{detail.image}}" width="150" height="100"></a></p>	
+		<p><a href="{{detail.url}}" target="_blank">{{ detail.filmtitle }}</a> </p>
+		<p>{{ detail.year }} | {{ detail.genre }} |  {{ detail.runtime }} min</p>
+		<p>{{ detail.rating }}</p>
+		<p>{{ detail.filmdescription }}</p>
+	
+</div>
+</div> -->
+
+<div class="media" ng-repeat="detail in details">
+  <div class="media-left">
+    <a href="{{detail.url}}" target="_blank">
+      <img class="media-object" src="{{detail.image}}" alt="{{ detail.filmtitle }}" width="150" height="100">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"> <a href="{{detail.url}}" target="_blank">{{ detail.filmtitle }}</a></h4>
+    	<p>{{ detail.year }} | {{ detail.genre }} |  {{ detail.runtime }} min</p>
+		<p>{{ detail.rating }}</p>
+		<p>{{ detail.filmdescription }}</p>
+  </div>
+</div>
+
+
+<!-- <div ng-repeat="detail in details">
+		<div class="detail">
+			<a ng-href="{{detail.url}}" target="_blank">{{ detail.title }}</a>, {{detail.rating}} ({{ detail.year }})<br/>
+			{{ detail.runtime }}, {{detail.genre}}<br/>
+			{{ detail.description }}
+		</div>
+	</div> -->	

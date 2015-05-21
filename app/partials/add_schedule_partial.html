@@ -1,0 +1,111 @@
+<div class="alert alert-danger" ng-show="errormsg">
+	{{errormsg}}
+</div>
+
+<div class="alert alert-success" ng-show="success">
+	{{success}}
+</div>
+
+<div class="panel panel-default">
+	<h3>Add New Schedule Details</h3>
+
+	<form name="scheduleForm" novalidate>
+
+		<p><label for="program-filmtitle">Enter Title</label>
+			<input type="text" name="filmtitle" ng-model="program.filmtitle" required>
+		</p>
+<!-- 
+			<p><label for="program-rating">Select Rating</label>
+				<select name="rating" ng-model="program.rating" ng-options="ratingobj.value as ratingobj.label for ratingobj in program.rating">
+					<option value="">Rating</option>
+				</select>
+			</p> 
+
+			<p><label for="program-year">Enter Release Year</label>
+				<select name="year" ng-model="program.year" ng-options="yrobj.value as yrobj.label for yrobj in program.year">
+					<option value="">Year</option>
+				</select>
+			</p> 
+			<p><label for="program-genre">Select Genre</label>
+				<select name="genre" ng-model="program.genre" ng-options="obj.value as obj.label for obj in program.genre">
+					<option value="">Category</option>
+				</select>
+			</p>
+
+		-->
+
+		<p><label for="program-rating">Enter Rating</label>
+			
+			<select name="rating" ng-model="program.rating">
+				<option value="">Rating</option>
+				<option  value="G">G</option>
+				<option value="PG13">PG-13</option>
+				<option  value="R">R</option>
+				<option  value="TVMA">TV-MA</option>
+			</select>
+		</p>
+
+		<p><label for="program-year">Enter Year</label>
+			<input type="text" name="year" ng-model="program.year" >
+		</p>		
+
+		<p><label for="program-genre">Enter Genre</label>
+			<select name="genre" ng-model="program.genre">
+				<option value="">Genre</option>
+				<option  value="Action">Action</option>
+				<option  value="Comedy">Comedy</option>
+				<option  value="Drama">Drama</option>
+				<option value="Documentary">Documentary</option>
+				<option  value="Foreign">Foreign</option>
+				<option  value="Horror">Horror</option>
+				<option  value="SciFi">Science Fiction</option>
+				<option  value="Thriller">Thriller</option>
+				<option  value="Western">Western</option>
+				<option  value="War">War</option>
+			</select>
+		</p>		
+
+
+		<p><label for="program-runtime">Enter Run Time</label>
+			<input type="text" name="runtime" ng-model="program.runtime" >
+		</p>
+
+		<p><label for="filmdescription">Enter Description</label>
+			<textarea name="filmdescription" ng-model="program.filmdescription" rows="4" cols="50"></textarea>
+		</p>
+
+
+			<!--p><br/><label for="program-day">Select Day</label>
+			<select name="day" ng-model="program.day" ng-options="obj.value as obj.label for obj in program.day">
+				<option value="">Day</option>
+			</select>
+			
+
+			<label for="program-month">Select Month</label>
+			<select name="month" ng-model="program.month" ng-options="obj.value as obj.label for obj in program.month">
+				<option value="">Month</option>
+			</select>
+
+
+			<label for="program-date">Select Date</label>
+			<select name="date" ng-model="program.date" ng-options="obj.value as obj.label for obj in program.date">
+				<option value="">Date</option>
+			</select>
+
+			<label for="program-scheduleyear">Select Year</label>
+			<select name="scheduleyear" ng-model="program.scheduleyear" ng-options="obj.value as obj.label for obj in program.scheduleyear">
+				<option value="">Year</option>
+			</select> 
+		</p-->
+
+		<p><label for="program-url">Enter URL</label>
+			<input type="text" name="url" ng-model="program.url">
+		</p>
+
+		<p><label for="program-image">Upload an Image</label>
+			<input type="file" id="file-upload" ng-click="addImage()">
+		</p> 
+
+		<p><button type="button" ng-click="addDetail( program )" class="btn btn-default">Add Schedule Details</button></p>  
+	</form>
+</div>

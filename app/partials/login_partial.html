@@ -1,0 +1,21 @@
+
+<div class="alert alert-danger" ng-show="errormsg">
+	{{errormsg}}
+</div>
+
+<div class="panel panel-default">
+	<h3>Login</h3>
+
+	<form name="loginForm" ng-submit="login()" novalidate>
+
+		<p><label for="login-email">Email</label>
+			<input type="text" name="email" ng-model="login.email" required>
+		</p>
+
+		<p><label for="login-password">Password</label>
+			<input type="text" name="password" ng-model="login.password" required>
+		</p>
+
+		<p><button type="button" class="btn btn-default navbar-btn">Sign In</button></p>
+	</form>
+</div>	
